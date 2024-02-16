@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Control My Desktop</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+            
+        <style>
+            @font-face {
+                font-family: 'PeaceSans';
+                src: url(".\\static\\peace_sans.otf");
+            }
+            @font-face {
+                font-family: 'ManRopeBold';
+                src: url('.\\static\\manrope.bold.otf');
+            }
+            
+            body{
+                overflow-x: hidden;
+                background-color: rgb(26, 2, 54);
+            }
+
+            .landing {
+                background: rgb(2,0,36);
+                background: linear-gradient(180deg, rgba(2,0,36,1) 85%, rgba(190,22,69,1) 100%);  
+                color: #fff;
+                text-align: center;
+                padding: 100px 0;
+                height: 100vh;
+            }
+            .landing h1 {
+                font-family: 'PeaceSans';
+                background: rgb(2,0,36);
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-size: 7rem;
+            }
+            .landing h2 {
+                font-family: "ManRopeBold";
+                font-size: 2rem;
+                font-weight: normal;
+                color: whitesmoke;
+            }
+            .landing h3 {
+                font-family: "ManRopeBold";
+                font-size: 1.4rem;
+                font-weight: normal;
+                color: whitesmoke;
+            }
+            .features {
+                background: rgba(190,22,69,1);
+            }
+            .desktop{
+                background: linear-gradient(180deg, rgba(190,22,69,1) 1%, rgb(26, 2, 54) 30%); 
+            }
+            .feature-box {
+                text-align: center;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+            }
+            .feature-box:hover {
+                transform: translateY(-10px);
+            }
+            .feature-box-inner {
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                padding: 20px;
+                border-radius: 10px;
+            }
+            .feature-box i {
+                font-size: 3rem;
+            }
+            .feature-box-title{
+                font-family: "ManRopeBold";
+                text-align: center;
+            }
+            .stats{
+                margin-top: 1rem;
+                text-shadow: rgba(56,25,230,0.61) 0px 0px 69px; 
+            }
+            .modal-title {
+                font-family: "ManRopeBold";
+            }
+
+            .rainbow-button {
+                display: inline-block;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff, #ff0000);
+                background-size: 200% 200%;
+                animation: rainbow-animation 4s ease infinite;
+            }
+            
+            #SubHead{
+                font-family: "PeaceSans";
+                font-weight: 500;
+                text-align: center;
+                padding-bottom: 1rem;
+                padding-top: 4rem;
+                background: rgb(2,0,36);
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            #DesktopText{
+                font-family: "PeaceSans";
+                font-weight: 500;
+                text-align: center;
+                padding-bottom: 1rem;
+                padding-top: 4rem;
+                background: rgb(2,0,36);
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            #DesktopTextSub{
+                font-family: "PeaceSans";
+                font-weight: 100;
+                font-size: small;
+                text-align: center;
+                background: rgb(2,0,36);
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            #TextSub{
+                font-family: "PeaceSans";
+                font-weight: 100;
+                text-align: center;
+                background: rgb(2,0,36);
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+
+            @keyframes rainbow-animation {
+                0% {
+                    background-position: 0% 50%;
+                }
+                100% {
+                    background-position: 100% 50%;
+                }
+            }
+
+            /* STARS */
+            /* https://codepen.io/delroyprithvi/pen/LYyJROR */
+            @keyframes animateBg{
+                0%,100%{
+                    transform: scale(1);
+                }
+                50%{
+                    transform: scale(1.2);
+                }
+            }
+            
+            @keyframes animateBg {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.2);
+                }
+            }
+
+            #Star {
+                position: absolute;
+                top: 0; /* Adjusted top position */
+                left: calc(100vw * 0.1);
+                width: 4px;
+                height: 4px;
+                background: #fff;
+                border-radius: 50%;
+                box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1);
+                animation: animate 3s linear infinite;
+            }
+
+            #Star::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 300px;
+                height: 1px;
+                background: linear-gradient(90deg, #fff, transparent);
+            }
+
+            @keyframes animate {
+                0% {
+                    transform: rotate(315deg) translateX(0);
+                    opacity: 1;
+                }
+                70% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: rotate(315deg) translateX(-1500px);
+                    opacity: 0;
+                }
+            }
+
+            #Star:nth-child(1) {
+                left: calc(100vw * 0.05);
+                animation-delay: 0s;
+                animation-duration: 1.5s;
+            }
+            #Star:nth-child(2) {
+                left: calc(100vw * 0.15);
+                animation-delay: 0.2s;
+                animation-duration: 3s;
+            }
+            #Star:nth-child(3) {
+                left: calc(100vw * 0.25);
+                animation-delay: 0.4s;
+                animation-duration: 5s;
+            }
+            #Star:nth-child(4) {
+                left: calc(100vw * 0.35);
+                animation-delay: 0.6s;
+                animation-duration: 3.5s;
+            }
+            #Star:nth-child(5) {
+                left: calc(100vw * 0.45);
+                animation-delay: 0.8s;
+                animation-duration: 2.95s;
+            }
+            #Star:nth-child(6) {
+                left: calc(100vw * 0.55);
+                animation-delay: 1s;
+                animation-duration: 3s;
+            }
+            #Star:nth-child(7) {
+                left: calc(100vw * 0.65);
+                animation-delay: 1.2s;
+                animation-duration: 1.95s;
+            }
+            #Star:nth-child(8) {
+                left: calc(100vw * 0.75);
+                animation-delay: 1.4s;
+                animation-duration: 3.25s;
+            }
+            #Star:nth-child(9) {
+                left: calc(100vw * 0.85);
+                animation-delay: 0.75s;
+                animation-duration: 3.25s;
+            }
+            #Star:nth-child(10) {
+                left: calc(100vw * 0.95);
+                animation-delay: 2.75s;
+                animation-duration: 1.75s;
+            } 
+            #Star:nth-child(11) {
+                left: calc(100vw * 0.934);
+                animation-delay: 1.25s;
+                animation-duration: 2.95s;
+            }
+            #Star:nth-child(12) {
+                left: calc(100vw * 0.99);
+                animation-delay: 0.75s;
+                animation-duration: 3.95s;
+            }
+            #Star:nth-child(13) {
+                left: calc(100vw * 1.19);
+                animation-delay: 3.75s;
+                animation-duration: 2.5s;
+            }
+            #Star:nth-child(14) {
+                left: calc(100vw * 1.01);
+                animation-delay: 5.45s;
+                animation-duration: 2.75s;
+            }
+            #Star:nth-child(15) {
+                left: calc(100vw * 1.09);
+                animation-delay: 2.5s;
+                animation-duration: 2.005s;
+            }
+            #Star:nth-child(16) {
+                left: calc(100vw * 0.59);
+                animation-delay: 3.435s;
+                animation-duration: 2.005s;
+            }
+            #Star:nth-child(17) {
+                left: calc(100vw * 0.79);
+                animation-delay: 7.435s;
+                animation-duration: 3.005s;
+            }
+            #Star:nth-child(18) {
+                left: calc(100vw * 0.34);
+                animation-delay: 5.335s;
+                animation-duration: 2.905s;
+            }
+            #Star:nth-child(19) {
+                left: calc(100vw * 0.467);
+                animation-delay: 1.535s;
+                animation-duration: 2.505s;
+            }
+            #Star:nth-child(20) {
+                left: calc(100vw * 0.19);
+                animation-delay: 2.435s;
+                animation-duration: 3.805s;
+            }
+        </style>
+
+    </head>
+    <body data-spy="scroll" data-target="#navbar">
+
+        <!-- Landing Section -->
+        <section id="landing" class="landing">
+            <div class="container">
+                <h1>Control My Desktop</h1>
+                <h3 id="TextSub">(this site and project arent done yet...)</h3>
+            </div>
+        
+            <div id="stats">
+                <h2 style="margin-top: 5rem; margin-bottom: 1rem; color: rgb(78, 70, 182); font-weight: bold;">A C++ and Python Remote Desktop Editor</h2>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                        <h3 style="color: rgb(78, 70, 182);">Total icon edits: 0</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <h3 style="color: rgb(78, 70, 182); ">Total background edits: 0</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <h3 style="color: rgb(78, 70, 182); ">Total messages sent: 0</h3>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h1 id="SubHead">Control my desktop options:</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-box-title">
+                            <h3>Control My Desktop</h3>
+                            <p>Edit the position/layout of the icons on my desktop.</p>
+                        </div>
+                        <div class="feature-box" data-toggle="modal" data-target="#desktopModal">
+                            <div class="feature-box-inner">
+                                <h1 style="font-size: 5rem; font-family: PeaceSans;">GO!</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box-title">
+                            <h3>Control My Background</h3>
+                            <p>Edit the position/layout of the icons on my desktop.</p>
+                        </div>
+                        <div class="feature-box" data-toggle="modal" data-target="#backgroundModal">
+                            <div class="feature-box-inner">
+                                <h1 style="font-size: 5rem; font-family: PeaceSans;">GO!</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box-title">
+                            <h3>Send Me a Message</h3>
+                            <p>Send me a message that will popup on the side of my desktop next time I open my PC.</p>
+                        </div>
+                        <div class="feature-box" data-toggle="modal" data-target="#messageModal">
+                            <div class="feature-box-inner">
+                                <h1 style="font-size: 5rem; font-family: PeaceSans;">GO!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current desktop -->
+        <section id="desktop" class="desktop">
+            <div class="container" style="padding-top: 20rem;">
+                <h1 id="DesktopText">My current desktop:</h1>
+                <img id="DesktopImg" src=".\\static\\desktop.png" style="margin-bottom: 2rem;" class="img-fluid">
+                <h3 id="DesktopTextSub">(Sry if this has anything wild on it💀)</h3>
+                <h3 id="DesktopTextSub">(Also this site only updates when my pc restarts)</h3>
+            </div>
+        </section>
+        
+        
+        <!-- Modals -->
+        <div class="modal fade" id="desktopModal" tabindex="-1" role="dialog" aria-labelledby="desktopModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style="background-color: rgba(2,0,36,1);">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="desktopModalLabel" style="color: #fff;">Control My Desktop</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="color: #fff;">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: #fff; text-align: center;">Hey! so um... using nothing but the win32API and c++ to let users control my desktop in pretty hard so I havent gotten this feature working yet. But in the meantime you can still use the other two features! or one... or click this button...</p>
+                        <a href="https://thisisnotajumpscare.com/" target="_blank" class="rainbow-button">Click Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="backgroundModal" tabindex="-1" role="dialog" aria-labelledby="backgroundModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style="background-color: rgba(2,0,36,1);">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="backgroundModalLabel" style="color: #fff;">Control My Background</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="color: #fff;">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: #fff; text-align: center;">Change my desktop background to any image on wall.alphacoders.com. Just click <a href="https://wall.alphacoders.com/" target="_blank">here</a>, find a wallpaper, and paste the link below! </p>
+                        <form id="linkForm">
+                            <div class="form-group text-center">
+                                <label for="SiteLinkInput" style="color: #fff;">Wallpaper link</label>
+                                <input type="text" class="form-control" id="SiteLinkInput" placeholder="Wallpaper link...">
+                                <button type="submit" class="btn btn-primary mb-2" style="background-color: rgb(78, 70, 233); border: rgb(78, 70, 233); margin-top: 1rem;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style="background-color: rgba(2,0,36,1);">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="messageModalLabel" style="color: #fff;">Send Me a Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="color: #fff;">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: #fff; text-align: center;">Send me a message that will popup on the side of my desktop next time I open my PC... Is what I would say if I was finished with the code for this... stfu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById("linkForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                submitLink();
+            });
+
+            function submitLink() {
+                var linkInput = document.getElementById("SiteLinkInput").value;
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/save_link");
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        console.log("[Horray!] Link saved successfully... I hope");
+                        document.getElementById("DesktopImg").scrollIntoView();
+                        $('#backgroundModal').modal('hide');
+                        //Show sucess popup
+                    } else {
+                        console.error("[Uh Oh!] Error saving link: " + xhr.statusText);
+                    }
+                };
+                xhr.send(JSON.stringify({ string: linkInput }));
+            }
+
+                    
+        </script>
+
+    </body>
+</html>
