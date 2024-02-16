@@ -2,48 +2,49 @@ from flask import Flask, render_template, request, abort, jsonify
 from flask_cors import CORS
 import os
 
-app = Flask(__name__)
 
-PREDEFINED_KEY = os.environ["OLPLOOMII1001022020110s"]
-link = "nothing"
+def createApp():
+    app = Flask(__name__)
 
-def verify_request(signature):
-    return PREDEFINED_KEY == signature
+    PREDEFINED_KEY = os.environ["OLPLOOMII1001022020110s"]
+    link = "nothing"
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+    def verify_request(signature):
+        return PREDEFINED_KEY == signature
 
-@app.route('/upload_png', methods=['POST'])
-def upload_png():
-    if 'file' not in request.files or 'signature' not in request.form:
-        abort(400, 'Missing sum')
+    @app.route('/')
+    def index():
+        return render_template('index.html')
 
-    file = request.files['file']
-    signature = request.form['signature']
+    @app.route('/upload_png', methods=['POST'])
+    def upload_png():
+        if 'file' not in request.files or 'signature' not in request.form:
+            abort(400, 'Missing sum')
 
-    if not verify_request(signature):
-        return "401"
+        file = request.files['file']
+        signature = request.form['signature']
 
-    file.save('.\\static\\desktop.png')
+        if not verify_request(signature):
+            return "401"
 
-    return "[Horray!] huzzah! or sum idk bro i have an APUSH test in like 2 days"
+        file.save('.\\static\\desktop.png')
 
-@app.route('/save_link', methods=['POST'])
-def save_link():
-    global link
-    data = request.get_json()
-    if 'string' in data:
-        link = data['string']
-        return jsonify({"message": "Link saved successfully"})
-    else:
-        return jsonify({"error": "Link not provided in JSON data"}), 400
+        return "[Horray!] huzzah! or sum idk bro i have an APUSH test in like 2 days"
 
-@app.route('/link', methods=['GET'])
-def get_link():
-    global link
-    return jsonify({"Saved link": link})
+    @app.route('/save_link', methods=['POST'])
+    def save_link():
+        global link
+        data = request.get_json()
+        if 'string' in data:
+            link = data['string']
+            return jsonify({"message": "Link saved successfully"})
+        else:
+            return jsonify({"error": "Link not provided in JSON data"}), 400
+
+    @app.route('/link', methods=['GET'])
+    def get_link():
+        global link
+        return jsonify({"Saved link": link})
 
 
-if __name__ == '__main__':
-    app.run()
+    return app
