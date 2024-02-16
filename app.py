@@ -3,7 +3,6 @@ from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
 
 PREDEFINED_KEY = os.environ["OLPLOOMII1001022020110s"]
 link = "nothing"
@@ -47,4 +46,4 @@ def get_link():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
