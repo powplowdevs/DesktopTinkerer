@@ -4,13 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Control My Desktop</title>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
 
             
         <style>
@@ -25,12 +27,12 @@
             
             body{
                 overflow-x: hidden;
-                background-color: rgb(26, 2, 54);
+                background-color: rgb(59, 3, 122);
             }
 
             .landing {
                 background: rgb(2,0,36);
-                background: linear-gradient(180deg, rgba(2,0,36,1) 85%, rgba(190,22,69,1) 100%);  
+                background: linear-gradient(180deg, rgb(10, 0, 17) 55%, rgb(6, 1, 80) 100%);  
                 color: #fff;
                 text-align: center;
                 padding: 100px 0;
@@ -39,10 +41,10 @@
             .landing h1 {
                 font-family: 'PeaceSans';
                 background: rgb(2,0,36);
-                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(84, 8, 119) 65%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                font-size: 7rem;
+                font-size: 9vw;
             }
             .landing h2 {
                 font-family: "ManRopeBold";
@@ -57,10 +59,10 @@
                 color: whitesmoke;
             }
             .features {
-                background: rgba(190,22,69,1);
+                background: rgb(6, 1, 80);
             }
             .desktop{
-                background: linear-gradient(180deg, rgba(190,22,69,1) 1%, rgb(26, 2, 54) 30%); 
+                background: linear-gradient(180deg, rgb(6, 1, 80) 0%, rgb(59, 3, 122) 50%); 
             }
             .feature-box {
                 text-align: center;
@@ -71,7 +73,7 @@
                 transform: translateY(-10px);
             }
             .feature-box-inner {
-                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(73, 13, 9) 100%);
+                background: linear-gradient(140deg, rgb(78, 70, 233) 0%, rgb(84, 8, 119) 65%);
                 padding: 20px;
                 border-radius: 10px;
             }
@@ -81,6 +83,7 @@
             .feature-box-title{
                 font-family: "ManRopeBold";
                 text-align: center;
+                color: rgb(78, 70, 233);
             }
             .stats{
                 margin-top: 1rem;
@@ -319,13 +322,34 @@
                 animation-delay: 2.435s;
                 animation-duration: 3.805s;
             }
+
+            .toggle-stars-checkbox {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 1000;
+                opacity: 0;
+            }
+
+            .toggle-stars-label {
+                position: absolute;
+                top: 10px;
+                right: 30px;
+                z-index: 1000;
+                color: #fff;
+                cursor: pointer;
+            }
+
         </style>
 
     </head>
     <body data-spy="scroll" data-target="#navbar">
-
+        
         <!-- Landing Section -->
         <section id="landing" class="landing">
+            <input type="checkbox" id="toggleStarsCheckbox" class="toggle-stars-checkbox">
+            <label for="toggleStarsCheckbox" class="toggle-stars-label">Toggle Stars</label>
+    
             <div class="container">
                 <h1>Control My Desktop</h1>
                 <h3 id="TextSub">(this site and project arent done yet...)</h3>
@@ -333,40 +357,36 @@
         
             <div id="stats">
                 <h2 style="margin-top: 5rem; margin-bottom: 1rem; color: rgb(78, 70, 182); font-weight: bold;">A C++ and Python Remote Desktop Editor</h2>
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        <h3 style="color: rgb(78, 70, 182);">Total icon edits: 0</h3>
+                <div class="row center">
+                    <div class="col-md-12">
+                        <h3 style="color: rgb(78, 70, 182); ">Interested in the source code? Find it on my github! <a href="https://github.com/powplowdevs/DesktopTinkerer" target="_blank"><i class="fa fa-github" style="font-size:24px"></i></a></h3>
                     </div>
-                    <div class="col-md-2">
-                        <h3 style="color: rgb(78, 70, 182); ">Total background edits: 0</h3>
-                    </div>
-                    <div class="col-md-2">
-                        <h3 style="color: rgb(78, 70, 182); ">Total messages sent: 0</h3>
-                    </div>
-                    <div class="col-md-3"></div>
                 </div>
             </div>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
-            <span id="Star"></span>
+
+            
+            <div id="StarContainer">
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+                <span id="Star"></span>
+            </div>
         </section>
 
         <!-- Features Section -->
@@ -502,6 +522,15 @@
                 };
                 xhr.send(JSON.stringify({ string: linkInput }));
             }
+
+            document.getElementById("toggleStarsCheckbox").addEventListener("change", function() {
+                var starsContainer = document.getElementById("StarContainer");
+                if (this.checked) {
+                    starsContainer.style.display = "block"; // Show stars
+                } else {
+                    starsContainer.style.display = "none"; // Hide stars
+                }
+            });
 
                     
         </script>

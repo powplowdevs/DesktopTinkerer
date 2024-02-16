@@ -6,7 +6,7 @@ import pyautogui
 import os
 
 def downloadWallpaper(link):
-    pageLink = link
+    pageLink = link.split('#', 1)[0]
     end = ""
     start = "https://images" + ".alphacoders.com/"
 
@@ -42,7 +42,7 @@ def downloadWallpaper(link):
     f.close()
 
 def grabLink():
-    url = 'https://desktoptinkerer.onrender.com/link' 
+    url = 'http://powplowdevs.pythonanywhere.com/link' 
     response = requests.get(url)
     stored_link = ""
     if response.status_code == 200:
@@ -60,9 +60,9 @@ def screenShotWallpaper():
     screenshot.save(screenshot_path)
 
 def uploadWallpaper():
-    upload_url = 'https://desktoptinkerer.onrender.com/upload_png'
+    upload_url = 'http://powplowdevs.pythonanywhere.com/upload_png'
 
-    predefined_key = "jsjsjfuefihiuhsjfdshfuefhuhjdsfahuedioadsijwkjkljfkjsdioujiopureiopqwuiorgsdmnmbshuifynbcfgidsahiudhfasdh"
+    predefined_key = None
 
     files = {'file': open('screenshot.png', 'rb')}
     data = {'signature': predefined_key}

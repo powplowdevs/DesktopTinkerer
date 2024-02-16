@@ -78,11 +78,11 @@ void mainLoop(){
 //-------------------MAIN-------------------
 int main() {
     //ONLOAD
-    //Screenshot wallpaper
-    screenshotbWallPaper();
     //Set wallpaper
     downloadWallpaper(); 
     setWallPaper((PVOID)"G:\\My Drive\\Programing\\Personal scripts\\RemoteAccess\\wallpaper.png");
+    //Screenshot wallpaper
+    screenshotbWallPaper();
     //Upload wallpaper
     uploadWallPaper();
 
