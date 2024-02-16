@@ -42,7 +42,7 @@ def downloadWallpaper(link):
     f.close()
 
 def grabLink():
-    url = 'http://127.0.0.1:5000/link' #REPLACE LATER
+    url = 'https://desktoptinkerer.onrender.com/link' 
     response = requests.get(url)
     stored_link = ""
     if response.status_code == 200:
@@ -60,9 +60,9 @@ def screenShotWallpaper():
     screenshot.save(screenshot_path)
 
 def uploadWallpaper():
-    upload_url = 'http://127.0.0.1:5000/upload_png'
+    upload_url = 'https://desktoptinkerer.onrender.com/upload_png'
 
-    predefined_key = os.environ["OLPLOOMII1001022020110s"]
+    predefined_key = "jsjsjfuefihiuhsjfdshfuefhuhjdsfahuedioadsijwkjkljfkjsdioujiopureiopqwuiorgsdmnmbshuifynbcfgidsahiudhfasdh"
 
     files = {'file': open('screenshot.png', 'rb')}
     data = {'signature': predefined_key}
