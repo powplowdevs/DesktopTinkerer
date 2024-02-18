@@ -31,12 +31,14 @@
             }
 
             .landing {
+                overflow: hidden;
                 background: rgb(2,0,36);
                 background: linear-gradient(180deg, rgb(10, 0, 17) 55%, rgb(6, 1, 80) 100%);  
                 color: #fff;
                 text-align: center;
                 padding: 100px 0;
                 height: 100vh;
+                overflow-x: hidden;
             }
             .landing h1 {
                 font-family: 'PeaceSans';
@@ -60,6 +62,7 @@
             }
             .features {
                 background: rgb(6, 1, 80);
+                overflow-x: hidden;
             }
             .desktop{
                 background: linear-gradient(180deg, rgb(6, 1, 80) 0%, rgb(59, 3, 122) 50%); 
@@ -86,6 +89,7 @@
                 color: rgb(78, 70, 233);
             }
             .stats{
+                overflow-x: hidden;
                 margin-top: 1rem;
                 text-shadow: rgba(56,25,230,0.61) 0px 0px 69px; 
             }
@@ -186,9 +190,13 @@
                 }
             }
 
+            #StarContainer {
+                position: relative;
+            }
+
             #Star {
                 position: absolute;
-                top: 0; /* Adjusted top position */
+                top: 0;
                 left: calc(100vw * 0.1);
                 width: 4px;
                 height: 4px;
@@ -224,101 +232,121 @@
 
             #Star:nth-child(1) {
                 left: calc(100vw * 0.05);
+                top: -10px;
                 animation-delay: 0s;
                 animation-duration: 1.5s;
             }
             #Star:nth-child(2) {
                 left: calc(100vw * 0.15);
+                top: -10px;
                 animation-delay: 0.2s;
                 animation-duration: 3s;
             }
             #Star:nth-child(3) {
                 left: calc(100vw * 0.25);
+                top: -10px;
                 animation-delay: 0.4s;
                 animation-duration: 5s;
             }
             #Star:nth-child(4) {
                 left: calc(100vw * 0.35);
+                top: -10px;
                 animation-delay: 0.6s;
                 animation-duration: 3.5s;
             }
             #Star:nth-child(5) {
                 left: calc(100vw * 0.45);
+                top: -10px;
                 animation-delay: 0.8s;
                 animation-duration: 2.95s;
             }
             #Star:nth-child(6) {
                 left: calc(100vw * 0.55);
+                top: -10px;
                 animation-delay: 1s;
                 animation-duration: 3s;
             }
             #Star:nth-child(7) {
                 left: calc(100vw * 0.65);
+                top: -10px;
                 animation-delay: 1.2s;
                 animation-duration: 1.95s;
             }
             #Star:nth-child(8) {
                 left: calc(100vw * 0.75);
+                top: -10px;
                 animation-delay: 1.4s;
                 animation-duration: 3.25s;
             }
             #Star:nth-child(9) {
                 left: calc(100vw * 0.85);
+                top: -10px;
                 animation-delay: 0.75s;
                 animation-duration: 3.25s;
             }
             #Star:nth-child(10) {
                 left: calc(100vw * 0.95);
+                top: -10px;
                 animation-delay: 2.75s;
                 animation-duration: 1.75s;
             } 
             #Star:nth-child(11) {
                 left: calc(100vw * 0.934);
+                top: -10px;
                 animation-delay: 1.25s;
                 animation-duration: 2.95s;
             }
             #Star:nth-child(12) {
                 left: calc(100vw * 0.99);
+                top: -10px;
                 animation-delay: 0.75s;
                 animation-duration: 3.95s;
             }
             #Star:nth-child(13) {
                 left: calc(100vw * 1.19);
+                top: -10px;
                 animation-delay: 3.75s;
                 animation-duration: 2.5s;
             }
             #Star:nth-child(14) {
                 left: calc(100vw * 1.01);
+                top: -10px;
                 animation-delay: 5.45s;
                 animation-duration: 2.75s;
             }
             #Star:nth-child(15) {
                 left: calc(100vw * 1.09);
+                top: -10px;
                 animation-delay: 2.5s;
                 animation-duration: 2.005s;
             }
             #Star:nth-child(16) {
                 left: calc(100vw * 0.59);
+                top: -10px;
                 animation-delay: 3.435s;
                 animation-duration: 2.005s;
             }
             #Star:nth-child(17) {
                 left: calc(100vw * 0.79);
+                top: -10px;
                 animation-delay: 7.435s;
                 animation-duration: 3.005s;
             }
             #Star:nth-child(18) {
                 left: calc(100vw * 0.34);
+                top: -10px;
                 animation-delay: 5.335s;
                 animation-duration: 2.905s;
             }
             #Star:nth-child(19) {
                 left: calc(100vw * 0.467);
+                top: -10px;
                 animation-delay: 1.535s;
                 animation-duration: 2.505s;
             }
             #Star:nth-child(20) {
                 left: calc(100vw * 0.19);
+                top: -10px;
                 animation-delay: 2.435s;
                 animation-duration: 3.805s;
             }
@@ -343,7 +371,30 @@
         </style>
 
     </head>
-    <body data-spy="scroll" data-target="#navbar">
+    <body>
+        <div id="StarContainer">
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+            <span id="Star"></span>
+        </div>
+
         
         <!-- Landing Section -->
         <section id="landing" class="landing">
@@ -362,30 +413,6 @@
                         <h3 style="color: rgb(78, 70, 182); ">Interested in the source code? Find it on my github! <a href="https://github.com/powplowdevs/DesktopTinkerer" target="_blank"><i class="fa fa-github" style="font-size:24px"></i></a></h3>
                     </div>
                 </div>
-            </div>
-
-            
-            <div id="StarContainer">
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
-                <span id="Star"></span>
             </div>
         </section>
 
